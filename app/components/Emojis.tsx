@@ -1,13 +1,13 @@
 import React from "react";
 
-const Colors = () => {
+const Emojis = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen w-full max-w-screen-xl">
       <p className="text-4xl font-semibold text-neutral-200">
-        What color are we feeling today?
+        Which emoji describes you best?
       </p>
     </div>
   );
 };
 
-export default Colors;
+export default Emojis;

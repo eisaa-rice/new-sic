@@ -8,18 +8,18 @@ const Moods = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen w-full">
-      <p className="text-4xl">What kind of mood are you in?</p>
+      <p className="text-4xl font-semibold text-neutral-200">
+        What kind of mood are you in?
+      </p>
 
-      <div className="flex flex-wrap justify-center gap-52 px-16 mt-52">
+      <div className="flex flex-wrap justify-center gap-52 px-16 mt-32">
         <motion.button
-          className="h-52 w-52 rounded-full text-3xl
-          border border-neutral-50/25"
-          initial={{ color: "#fef9c2" }}
+          className="h-52 w-52 rounded-full text-3xl 
+          bg-white/10 backdrop-blur-lg"
           whileHover={{
             cursor: "pointer",
             // background: "black",
             scale: 1.05,
-            color: "#fff085",
           }}
           onClick={() => {}}
         >
@@ -28,7 +28,7 @@ const Moods = () => {
 
         <motion.button
           className="h-52 w-52 rounded-full text-3xl
-          border border-neutral-50/25"
+          bg-white/10 backdrop-blur-lg"
           initial={{ color: "#dbeafe" }}
           whileHover={{
             cursor: "pointer",
@@ -43,7 +43,7 @@ const Moods = () => {
 
         <motion.button
           className="h-52 w-52 rounded-full text-3xl
-          border border-neutral-50/25"
+          bg-white/10 backdrop-blur-lg"
           initial={{ color: "#ffe2e2" }}
           whileHover={{
             cursor: "pointer",

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "motion/react";
 
 const Genre = ({
   genre,
@@ -10,12 +11,13 @@ const Genre = ({
   style?: React.CSSProperties;
 }) => {
   return (
-    <button
+    <motion.button
       style={style}
       className="px-5 py-3 rounded-full bg-white/10 backdrop-blur-lg"
+      whileHover={{ cursor: "pointer", scale: 1.05 }}
     >
       {genre}
-    </button>
+    </motion.button>
   );
 };
 
@@ -64,10 +66,12 @@ const genres = [
 
 const Genres = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full">
-      <p className="text-4xl">What genres do you like?</p>
+    <div className="flex flex-col items-center justify-center min-h-screen w-full max-w-screen-xl">
+      <p className="text-4xl font-semibold text-neutral-200">
+        What genres do you like?
+      </p>
 
-      <div className="flex flex-wrap justify-center gap-12 px-16 mt-24">
+      <div className="flex flex-wrap justify-center gap-12 px-16 mt-32">
         {genres.map((g, i) => (
           <Genre key={i} genre={g.genre} style={g.style} />
         ))}
