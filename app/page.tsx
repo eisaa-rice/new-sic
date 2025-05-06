@@ -1,7 +1,9 @@
 "use client";
 
-// import { useEffect, useState } from "react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
+import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Genres from "./components/Genres";
 import Moods from "./components/Moods";
@@ -9,6 +11,11 @@ import Colors from "./components/Colors";
 import Emojis from "./components/Emojis";
 
 export default function Home() {
+  const [page, setPage] = useState<number>(0);
+
+  const handleChangePage = (delta: number) => {
+    setPage((prev) => prev + delta);
+  };
   return (
     <div className="flex flex-col items-center relative overflow-hidden">
       <svg
@@ -47,7 +54,7 @@ export default function Home() {
         </g>
       </svg>
 
-      <svg
+      {/* <svg
         className="absolute -z-50 h-[72rem] w-[72rem] opacity-20
         top-[800px] blur-[6rem]"
         xmlns="http://www.w3.org/2000/svg"
@@ -63,9 +70,9 @@ export default function Home() {
             fill="#b1572a"
           />
         </g>
-      </svg>
+      </svg> */}
 
-      <svg
+      {/* <svg
         className="absolute -z-50 h-[72rem] w-[72rem] opacity-20
         top-[1700px] -left-[200px] blur-[6rem]"
         xmlns="http://www.w3.org/2000/svg"
@@ -81,9 +88,9 @@ export default function Home() {
             fill="#dac73f"
           />
         </g>
-      </svg>
+      </svg> */}
 
-      <svg
+      {/* <svg
         className="absolute -z-50 h-[64rem] w-[64rem] opacity-20
         top-[2500px] left-[600px] blur-[6rem]"
         xmlns="http://www.w3.org/2000/svg"
@@ -99,17 +106,70 @@ export default function Home() {
             fill="#9dcf51"
           />
         </g>
-      </svg>
+      </svg> */}
 
-      <Hero />
+      <Header />
 
-      <Genres />
-
-      <Moods />
-
-      <Colors />
-
-      <Emojis />
+      <AnimatePresence mode="wait">
+        {page === 0 ? (
+          <motion.div
+            key="hero"
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Hero onPageChange={handleChangePage} />
+          </motion.div>
+        ) : page === 1 ? (
+          <motion.div
+            key="genres"
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Genres onPageChange={handleChangePage} />
+          </motion.div>
+        ) : page === 2 ? (
+          <motion.div
+            key="moods"
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Moods onPageChange={handleChangePage} />
+          </motion.div>
+        ) : page === 3 ? (
+          <motion.div
+            key="colors"
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Colors onPageChange={handleChangePage} />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="emojis"
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Emojis onPageChange={handleChangePage} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
+
+// {page == 0 ? (
+//   <Hero onPageChange={handleChangePage} />
+// ) : page == 1 ? (
+//   <Genres onPageChange={handleChangePage} />
+// ) : page == 2 ? (
+//   <Moods />
+// ) : page == 3 ? (
+//   <Colors />
+// ) : (
+//   <Emojis />
+// )}

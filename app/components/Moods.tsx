@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 
-const Moods = () => {
+const Moods = ({ onPageChange }: { onPageChange: (delta: number) => void }) => {
   const [mood, setMood] = useState("");
 
   return (
@@ -55,6 +55,20 @@ const Moods = () => {
         >
           mad
         </motion.button>
+      </div>
+
+      <div className="flex w-full justify-between mt-24">
+        <motion.button
+          className="bg-white/10 w-16 h-16 rounded-full"
+          whileHover={{ cursor: "pointer", scale: 1.05 }}
+          onClick={() => onPageChange(-1)}
+        ></motion.button>
+
+        <motion.button
+          className="bg-white/10 w-16 h-16 rounded-full"
+          whileHover={{ cursor: "pointer", scale: 1.05 }}
+          onClick={() => onPageChange(1)}
+        ></motion.button>
       </div>
     </div>
   );
