@@ -15,8 +15,8 @@ const Mood = ({
   return (
     <motion.button
       style={style}
-      className="px-5 py-3 rounded-full
-      border border-white/25 backdrop-blur-lg"
+      className="px-5 py-3 rounded-full text-neutral-400
+      border border-white/25 backdrop-blur-lg transition-all-"
       whileHover={{ cursor: "pointer" }}
       animate={
         active
@@ -34,19 +34,33 @@ const Mood = ({
 };
 
 const moods = [
+  { mood: "confident", style: {} },
   { mood: "excited", style: {} },
   { mood: "happy", style: {} },
+  { mood: "calm", style: {} },
+  { mood: "blessed", style: {} },
+  { mood: "affectionate", style: {} },
+
   { mood: "bittersweet", style: {} },
+  { mood: "regret", style: {} },
   { mood: "sad", style: {} },
+  { mood: "depressed", style: {} },
+  { mood: "lonely", style: {} },
+  { mood: "heartbroken", style: {} },
+
   { mood: "frustrated", style: {} },
+  { mood: "moody", style: {} },
+  { mood: "bored", style: {} },
   { mood: "mad", style: {} },
+  { mood: "rebellious", style: {} },
+  { mood: "manic", style: {} },
 ];
 
 const Moods = ({ onPageChange }: { onPageChange: (delta: number) => void }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen w-full max-w-screen-xl">
-      <p className="text-4xl font-semibold text-neutral-200">
-        What kind of mood are you in?
+      <p className="text-4xl font-semibold text-neutral-300">
+        What kind of vibe are you looking for?
       </p>
 
       <div className="flex flex-wrap justify-around gap-12 px-16 mt-24">

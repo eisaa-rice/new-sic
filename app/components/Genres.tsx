@@ -8,13 +8,15 @@ const Genre = ({ genre }: { genre: string }) => {
 
   return (
     <motion.button
-      className="px-5 py-3 rounded-full
-      border border-white/25 backdrop-blur-lg"
+      className="px-5 py-3 rounded-full text-neutral-400
+      border border-white/25 backdrop-blur-lg transition-all-"
       whileHover={{ cursor: "pointer" }}
       animate={
         active
           ? {
               background: "rgba(255, 255, 255, 0.2)",
+              color: "white",
+              borderColor: "rgba(255, 255, 255, 0)",
               scale: 1.05,
             }
           : {}
@@ -76,7 +78,7 @@ const Genres = ({
 }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen w-full max-w-screen-xl">
-      <p className="text-4xl font-semibold text-neutral-200">
+      <p className="text-4xl font-semibold text-neutral-300">
         What genres do you like?
       </p>
 
