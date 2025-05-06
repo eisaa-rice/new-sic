@@ -3,22 +3,22 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 
-const Genre = ({
-  genre,
-  style,
-}: {
-  genre: string;
-  style?: React.CSSProperties;
-}) => {
+const Genre = ({ genre }: { genre: string }) => {
   const [active, setActive] = useState(false);
 
   return (
     <motion.button
-      style={style}
       className="px-5 py-3 rounded-full
       border border-white/25 backdrop-blur-lg"
-      whileHover={{ cursor: "pointer", scale: 1.05 }}
-      animate={active && { background: "rgba(255, 255, 255, 0.2)" }}
+      whileHover={{ cursor: "pointer" }}
+      animate={
+        active
+          ? {
+              background: "rgba(255, 255, 255, 0.2)",
+              scale: 1.05,
+            }
+          : {}
+      }
       onClick={() => setActive(!active)}
     >
       {genre}
@@ -27,46 +27,46 @@ const Genre = ({
 };
 
 const genres = [
-  { genre: "bebop", style: {} },
-  { genre: "techno", style: {} },
-  { genre: "pop rock", style: {} },
-  { genre: "classical", style: {} },
-  { genre: "grunge", style: {} },
-  { genre: "romantic", style: {} },
-  { genre: "country", style: {} },
-  { genre: "opera", style: {} },
-  { genre: "vaporwave", style: {} },
-  { genre: "rock", style: {} },
-  { genre: "reggaeton", style: {} },
-  { genre: "metal", style: {} },
-  { genre: "bachata", style: {} },
-  { genre: "baroque", style: {} },
-  { genre: "dubstep", style: {} },
-  { genre: "j-pop", style: {} },
-  { genre: "lofi", style: {} },
-  { genre: "banda", style: {} },
-  { genre: "punk", style: {} },
-  { genre: "edm", style: {} },
-  { genre: "latino pop", style: {} },
-  { genre: "hardcore", style: {} },
-  { genre: "electropop", style: {} },
-  { genre: "alternative", style: {} },
-  { genre: "salsa", style: {} },
-  { genre: "rap/hip-hop", style: {} },
-  { genre: "k-pop", style: {} },
-  { genre: "video game music", style: {} },
-  { genre: "emo", style: {} },
-  { genre: "acoustic", style: {} },
-  { genre: "pop punk", style: {} },
-  { genre: "rhythm & blues", style: {} },
-  { genre: "phonk", style: {} },
-  { genre: "bedroom pop", style: {} },
-  { genre: "cumbia", style: {} },
-  { genre: "jazz", style: {} },
-  { genre: "hyperpop", style: {} },
-  { genre: "funk", style: {} },
-  { genre: "folk", style: {} },
-  { genre: "pop", style: {} },
+  "bebop",
+  "techno",
+  "pop rock",
+  "classical",
+  "grunge",
+  "romantic",
+  "country",
+  "opera",
+  "vaporwave",
+  "rock",
+  "reggaeton",
+  "metal",
+  "bachata",
+  "baroque",
+  "dubstep",
+  "j-pop",
+  "lofi",
+  "banda",
+  "punk",
+  "edm",
+  "latino pop",
+  "hardcore",
+  "electropop",
+  "alternative",
+  "salsa",
+  "rap/hip-hop",
+  "k-pop",
+  "video game music",
+  "emo",
+  "acoustic",
+  "pop punk",
+  "rhythm & blues",
+  "phonk",
+  "bedroom pop",
+  "cumbia",
+  "jazz",
+  "hyperpop",
+  "funk",
+  "folk",
+  "pop",
 ];
 
 const Genres = ({
@@ -82,7 +82,7 @@ const Genres = ({
 
       <div className="flex flex-wrap justify-around gap-12 px-16 mt-24">
         {genres.map((g, i) => (
-          <Genre key={i} genre={g.genre} style={g.style} />
+          <Genre key={i} genre={g} />
         ))}
       </div>
 

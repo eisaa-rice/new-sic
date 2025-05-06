@@ -5,7 +5,10 @@ import { motion } from "motion/react";
 
 const Hero = ({ onPageChange }: { onPageChange: (delta: number) => void }) => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full max-w-screen-xl">
+    <div
+      className="flex flex-col items-center justify-center min-h-screen w-full max-w-screen-xl
+    "
+    >
       <p className="text-7xl font-bold mt-48">New music, just for you.</p>
 
       <div className="flex flex-col items-center justify-center">
