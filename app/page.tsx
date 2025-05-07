@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
 
-import Header from "./components/Header";
+import Header from "./components/ui/Header";
+import Nav from "./components/ui/Nav";
+
 import Hero from "./components/Hero";
 import Genres from "./components/Genres";
 import Moods from "./components/Moods";
@@ -16,8 +17,12 @@ export default function Home() {
   const handleChangePage = (delta: number) => {
     setPage((prev) => prev + delta);
   };
+
   return (
-    <div className="flex flex-col items-center relative overflow-hidden">
+    <div
+      className="flex flex-col items-center 
+    relative overflow-hidden min-h-screen"
+    >
       <svg
         className="absolute -z-50 h-72 w-72 opacity-20
         top-[100px] left-[200px] blur-[6rem]"
@@ -110,66 +115,19 @@ export default function Home() {
 
       <Header />
 
-      <AnimatePresence mode="wait">
-        {page === 0 ? (
-          <motion.div
-            key="hero"
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <Hero onPageChange={handleChangePage} />
-          </motion.div>
-        ) : page === 1 ? (
-          <motion.div
-            key="genres"
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <Genres onPageChange={handleChangePage} />
-          </motion.div>
-        ) : page === 2 ? (
-          <motion.div
-            key="moods"
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <Moods onPageChange={handleChangePage} />
-          </motion.div>
-        ) : page === 3 ? (
-          <motion.div
-            key="colors"
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <Colors onPageChange={handleChangePage} />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="emojis"
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <Emojis onPageChange={handleChangePage} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {page === 0 ? (
+        <Hero />
+      ) : page === 1 ? (
+        <Genres />
+      ) : page === 2 ? (
+        <Moods />
+      ) : page === 3 ? (
+        <Colors />
+      ) : (
+        <Emojis />
+      )}
+
+      <Nav currPage={page} onChangePage={handleChangePage} />
     </div>
   );
 }
-
-// {page == 0 ? (
-//   <Hero onPageChange={handleChangePage} />
-// ) : page == 1 ? (
-//   <Genres onPageChange={handleChangePage} />
-// ) : page == 2 ? (
-//   <Moods />
-// ) : page == 3 ? (
-//   <Colors />
-// ) : (
-//   <Emojis />
-// )}
