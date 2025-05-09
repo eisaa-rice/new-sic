@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { motion } from "motion/react";
+
 import Header from "./components/ui/Header";
 import Nav from "./components/ui/Nav";
 
@@ -23,7 +25,7 @@ export default function Home() {
       className="flex flex-col items-center 
     relative overflow-hidden min-h-screen"
     >
-      <svg
+      <motion.svg
         className="absolute -z-50 h-72 w-72 opacity-20
         top-[100px] left-[200px] blur-[6rem]"
         xmlns="http://www.w3.org/2000/svg"
@@ -32,6 +34,8 @@ export default function Home() {
         width="900"
         height="600"
         version="1.1"
+        animate={{ y: [0, 25, 0] }}
+        transition={{ repeat: Infinity, duration: 5, ease: "anticipate" }}
       >
         <g transform="translate(450.2122210563695 310.24860613615687)">
           <path
@@ -39,9 +43,9 @@ export default function Home() {
             fill="#BB004B"
           />
         </g>
-      </svg>
+      </motion.svg>
 
-      <svg
+      <motion.svg
         className="absolute -z-50 h-[52rem] w-[52rem] opacity-20
         top-[200px] left-[1200px] blur-[6rem]"
         xmlns="http://www.w3.org/2000/svg"
@@ -50,6 +54,8 @@ export default function Home() {
         width="900"
         height="600"
         version="1.1"
+        animate={{ y: [0, -90, 0] }}
+        transition={{ repeat: Infinity, duration: 12, ease: "anticipate" }}
       >
         <g transform="translate(422.2080076796591 299.02833210905345)">
           <path
@@ -57,7 +63,7 @@ export default function Home() {
             fill="#8f0f2a"
           />
         </g>
-      </svg>
+      </motion.svg>
 
       {/* <svg
         className="absolute -z-50 h-[72rem] w-[72rem] opacity-20

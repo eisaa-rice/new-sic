@@ -3,175 +3,114 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 
-const Genre = ({
-  emoji,
-  genre,
-  onGenreChange,
-  id,
-}: {
-  emoji: string;
-  genre: string;
-  onGenreChange: (num: number) => void;
-  id: number;
-}) => {
-  return (
-    <motion.div
-      className="flex flex-col items-center justify-between
-   
-      h-48 w-48 rounded-full
-      border border-white/5"
-      whileHover={{ cursor: "pointer", scale: 1.05 }}
-      onClick={() => onGenreChange(id)}
-    >
-      <p className="text-7xl m-auto pt-4">{emoji}</p>
+const Genre = ({ emoji, genre }: { emoji?: string; genre: string }) => {
+  // const [active, setActive] = useState(false);
 
-      <p className="text-center text-neutral-300 font-extralight pb-8">
-        {genre}
-      </p>
-    </motion.div>
+  return (
+    <motion.p
+      className="rounded-lg backdrop-blur-2xl px-3 py-1
+      border border-white/5 text-center text-neutral-300 font-extralight"
+      whileHover={{ cursor: "pointer", scale: 1.05 }}
+    >
+      {genre} {emoji}
+    </motion.p>
   );
 };
 
 const genres = [
-  {
-    genre: "Pop",
-    emoji: "🎤",
-    subGenres: [
-      "pop",
-      "teen",
-      "j-pop",
-      "k-pop",
-      "bedroom pop",
-      "hyperpop",
-      "bubblegum",
-    ],
-  },
-  {
-    genre: "Rock",
-    emoji: "🎸",
-    subGenres: [
-      "classic",
-      "glam",
-      "pop-rock",
-      "punk",
-      "emo",
-      "grunge",
-      "alternative",
-      "metal",
-      "screamo",
-    ],
-  },
-  {
-    genre: "Hip-hop / Rap",
-    emoji: "🗣️",
-    subGenres: [
-      "rap",
-      "drill",
-      "hip-hop",
-      "trap",
-      "emo rap",
-      "phonk",
-      "underground",
-    ],
-  },
-  {
-    genre: "Electronic",
-    emoji: "🪩",
-    subGenres: [
-      "house",
-      "EDM",
-      "techno",
-      "drum & bass",
-      "dubstep",
-      "vaporwave",
-      "lo-fi",
-    ],
-  },
-  {
-    genre: "Latin",
-    emoji: "💃🏻",
-    subGenres: [
-      "reggaeton",
-      "bachata",
-      "latin pop",
-      "banda",
-      "cumbia",
-      "salsa",
-    ],
-  },
-  {
-    genre: "Classical",
-    emoji: "🎻",
-    subGenres: [
-      "baroque",
-      "romantic",
-      "symphony",
-      "ballet",
-      "opera",
-      "concerto",
-      // "orchestral",
-    ],
-  },
-  {
-    genre: "Country",
-    emoji: "🍺",
-    subGenres: [
-      "country pop",
-      "bluegrass",
-      "folk",
-      "honky-tonk",
-      "country rock",
-      "rockabilly",
-      "neotraditional",
-    ],
-  },
-  {
-    genre: "Jazz",
-    emoji: "🎷",
-    subGenres: [
-      "cool",
-      "bebop",
-      "free",
-      "swing",
-      "fusion",
-      "hard bop",
-      "gypsy",
-      "latin",
-    ],
-  },
-  {
-    genre: "Rhythm & Blues",
-    emoji: "🌃",
-    subGenres: [
-      "soul",
-      "r & b",
-      "funk",
-      "contemporary ",
-      "alternative",
-      "classic",
-      "neo-soul",
-      "smooth",
-      "blues",
-    ],
-  },
-  {
-    genre: "Folk",
-    emoji: "🪕",
-    subGenres: [
-      "folk rock",
-      "acoustic",
-      "indie",
-      "contemporary ",
-      "traditional",
-      "protest / political",
-      "indie",
-      "celtic",
-    ],
-  },
+  "pop 🎤",
+  "teen",
+  "j-pop",
+  "k-pop",
+  "bedroom pop",
+  "hyperpop",
+  "bubblegum",
+  "classic",
+  "glam",
+  "pop-rock",
+  "punk",
+  "emo",
+  "grunge",
+  "alternative",
+  "metal",
+  "screamo",
+  "hip-hop",
+
+  "rap🗣️",
+  "drill",
+  "hip-hop",
+  "trap",
+  "emo rap",
+  "phonk",
+  "underground",
+
+  "electronic 🪩",
+  "house",
+  "EDM",
+  "techno",
+  "drum & bass",
+  "dubstep",
+  "vaporwave",
+  "lo-fi",
+
+  "latino 💃🏻",
+  "reggaeton",
+  "bachata",
+  "latin pop",
+  "banda",
+  "cumbia",
+  "salsa",
+
+  "classical  🎻",
+  "baroque",
+  "romantic",
+  "symphony",
+  "ballet",
+  "opera",
+  "concerto",
+  "country 🍺",
+
+  "country pop",
+  "bluegrass",
+  "folk",
+  "honky-tonk",
+  "country rock",
+  "rockabilly",
+  "neotraditional",
+
+  "jazz 🎷",
+  "cool",
+  "bebop",
+  "free",
+  "swing",
+  "fusion",
+  "hard bop",
+  "gypsy",
+  "latin",
+
+  "soul",
+  "r & b 🌃",
+  "funk",
+  "contemporary ",
+  "alternative",
+  "classic",
+  "neo-soul",
+  "smooth",
+  "blues",
+
+  "folk 🪕",
+  "folk rock",
+  "acoustic",
+  "indie",
+  "contemporary ",
+  "traditional",
+  "protest / political",
+  "indie",
+  "celtic",
 ];
 
 const Genres = () => {
-  const [genre, setGenre] = useState(-1);
+  // const [genre, setGenre] = useState(-1);
 
   return (
     <div
@@ -179,51 +118,14 @@ const Genres = () => {
     w-full max-w-screen-xl"
     >
       <p className="text-4xl font-semibold text-neutral-300">
-        {genre === 0
-          ? "Any sub-genres in specific?"
-          : "What genres are you looking for?"}
+        What genres are you looking for?
       </p>
 
-      {genre === 0 ? (
-        <div
-          className="flex flex-wrap justify-around gap-12 
-      h-full px-16 mt-24"
-        >
-          <Genre
-            genre={genres[0].genre}
-            emoji={genres[0].emoji}
-            onGenreChange={setGenre}
-            id={0}
-          />
-        </div>
-      ) : genre === 1 ? (
-        <div
-          className="flex flex-wrap justify-around gap-12 
-    h-full px-16 mt-24"
-        >
-          <Genre
-            genre={genres[1].genre}
-            emoji={genres[1].emoji}
-            onGenreChange={setGenre}
-            id={1}
-          />
-        </div>
-      ) : (
-        <div
-          className="flex flex-wrap justify-around gap-12 
-      h-full px-16 mt-24"
-        >
-          {genres.map((g, i) => (
-            <Genre
-              key={i}
-              genre={g.genre}
-              emoji={g.emoji}
-              onGenreChange={setGenre}
-              id={i}
-            />
-          ))}
-        </div>
-      )}
+      <div className="flex flex-wrap items-center justify-center gap-12">
+        {genres.map((g, i) => (
+          <Genre key={i} genre={g} />
+        ))}
+      </div>
     </div>
   );
 };
