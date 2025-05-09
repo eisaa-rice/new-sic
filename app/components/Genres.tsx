@@ -4,13 +4,15 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 
 const Genre = ({ emoji, genre }: { emoji?: string; genre: string }) => {
-  // const [active, setActive] = useState(false);
+  const [active, setActive] = useState(false);
 
   return (
     <motion.p
       className="rounded-lg backdrop-blur-2xl px-3 py-1
-      border border-white/5 text-center text-neutral-300 font-extralight"
+      border border-white/10 text-center text-neutral-300 font-extralight"
       whileHover={{ cursor: "pointer", scale: 1.05 }}
+      animate={active ? { background: "rgba(255, 255, 255, 0.1)" } : {}}
+      onClick={() => setActive(!active)}
     >
       {genre} {emoji}
     </motion.p>
@@ -27,6 +29,8 @@ const genres = [
   "bubblegum",
   "classic",
   "glam",
+
+  "rock 🎸",
   "pop-rock",
   "punk",
   "emo",
@@ -68,8 +72,8 @@ const genres = [
   "ballet",
   "opera",
   "concerto",
-  "country 🍺",
 
+  "country 🍺",
   "country pop",
   "bluegrass",
   "folk",
@@ -89,7 +93,7 @@ const genres = [
   "latin",
 
   "soul",
-  "r & b 🌃",
+  "rhythm & blues 🌃",
   "funk",
   "contemporary ",
   "alternative",
