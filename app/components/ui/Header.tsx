@@ -5,8 +5,8 @@ import { motion } from "motion/react";
 const Header = () => {
   return (
     <div
-      className="max-w-screen-xl
-    flex w-full p-8 items-center justify-between"
+      className="h-[7.5dvh] w-full border-b border-white/5
+      flex items-center justify-between"
     >
       <p className="font-bold text-xl">New-sic</p>
 

@@ -3,7 +3,7 @@
 :root {
   /* this is how and where you make variables  */
   /* --background: linear-gradient(to bottom, #0a0a0a, black); */
-  --background: #000000;
+  --background: black; /* 0a0a0a */
   --foreground: #ffffff;
 }
 

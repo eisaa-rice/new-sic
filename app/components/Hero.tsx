@@ -4,10 +4,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div
-      className="flex flex-col items-center justify-center
-    w-full max-w-screen-xl"
-    >
+    <div className="flex flex-col items-center justify-center w-full">
       <p className="text-7xl font-bold mt-48">New music, just for you.</p>
 
       <div className="flex flex-col items-center justify-center">
